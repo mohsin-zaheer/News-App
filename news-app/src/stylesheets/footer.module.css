@@ -1,0 +1,239 @@
+.footer{
+    padding-bottom: 50px;
+}
+
+.fLeft{
+    border-radius: 30px ;
+    background: var(--Gray, #F5F5F5);
+    width: 100%;
+}
+
+
+
+.t{
+    width: 4px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+
+.fInfo{
+    color: var(--Black-75, rgba(62, 50, 50, 0.75));
+    text-align: justify;
+    text-overflow: ellipsis;
+
+    /* Paragraph */
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.25px;
+    text-transform: capitalize;
+    margin-bottom: 50px;
+    width: 350px;
+}
+
+.inpBg{
+    width: 100%;
+    padding: 12px 8px;
+    border-radius: 12px;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+
+}
+
+.inp{
+    background: transparent;
+    outline: none;
+    border: none;
+    color:  rgba(62, 50, 50, 0.75);
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* Input text */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+
+.inpIcon{
+    color: var(--Black-75, rgba(62, 50, 50, 0.75));
+    font-size: 20px;
+}
+
+.infoBg{
+    padding: 30px;
+    padding-right: 15px;
+}
+
+.catBg{
+    padding: 30px;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cat{
+    color: var(--Black, #3E3232);
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* Input text */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-bottom: 14px;
+    text-decoration: none;
+}
+
+
+.fBtn{
+    border-radius: 12px;
+    background: linear-gradient(263deg, #F45C9F 5.57%, #FF7563 73.65%);
+    width: 128px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    color: var(--White, #FFF);
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* Button */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    text-transform: capitalize;
+}
+
+.fIcon{
+    margin-right: 8px;
+}
+
+.fBtn2{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(228deg, #2CA5E0 11.38%, #67C9F5 84.07%);
+    color: var(--White, #FFF);
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.fIcon2{
+    color: var(--White, #FFF);
+    text-align: center;
+    font-size: 16px;
+}
+
+.fbtnBg{
+    display: flex;
+    align-items: center;
+}
+
+.copyright{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 12px ;
+    background: var(--Black-5, rgba(62, 50, 50, 0.05));
+    margin: 25px auto;
+    width: 90%;
+    color: var(--Black-75, rgba(62, 50, 50, 0.75));
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* Input text */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    height: 48px;
+    margin-top: 0px;
+}
+
+
+.commentBg{
+    padding-top: 30px;
+}
+
+.commentCard{
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--Gray, #F5F5F5);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.commenter{
+    color: var(--Black, #3E3232);
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* H5 */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.comment{
+    overflow: hidden;
+    color: var(--Black-75, rgba(62, 50, 50, 0.75));
+    font-feature-settings: 'liga' off, 'clig' off;
+    text-overflow: ellipsis;
+    /* Input text */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: capitalize;
+}
+
+.image{
+    width: 100%;
+    height: 100px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    object-fit: cover;
+}
+
+.imgBg{
+    padding-right: 8px;
+}
+
+.instaBg{
+    padding-top: 30px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .catBg{
+        padding: 10px;
+        padding-left: 30px;
+    }
+    .footer{
+        flex-direction: column-reverse;
+    }
+}

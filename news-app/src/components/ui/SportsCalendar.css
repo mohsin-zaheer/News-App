@@ -1,0 +1,88 @@
+.calendar-container {
+  width: 100%;
+  margin: 0 auto;
+  font-family: sans-serif;
+  padding: 34px 25px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cell {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  position: relative;
+  background-color: #fdfdfd;
+}
+
+.cell.header {
+  font-weight: bold;
+  color:  rgba(62, 50, 50, 0.50);
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* H5 */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  }
+
+.cell.empty {
+  background-color: transparent;
+  border: none;
+}
+
+.match-logo {
+  max-width: 36px;
+  max-height: 36px;
+  object-fit: contain;
+}
+
+.date {
+  color: #3E3232;
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* H5 */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+
+.currentMonth{
+  color: var(--Black, #3E3232);
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* H5 */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .calendar-container{
+    width: 90%;
+    margin: 10px auto;
+  }
+}

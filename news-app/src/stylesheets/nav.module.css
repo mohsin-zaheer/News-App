@@ -1,0 +1,137 @@
+.logo{
+    width: 150px;
+}
+
+.navRight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.searchBg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 12px;
+    padding: 0px 15px;
+
+    background: #F5F5F5;
+}
+
+.search{
+    border: none;
+    background: transparent;
+    color: rgba(62, 50, 50, 0.75);
+    font-feature-settings: 'liga' off, 'clig' off;
+    outline: none;
+    padding: 10px 0px;
+
+    /* Input text */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    width: 287px;
+}
+
+
+.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+    gap: 10px;
+    color: #000;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.userImg{
+    border-radius: 100px;
+    width: 48px;
+    height: 48px;
+}
+
+
+.save{
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.saveIco{
+    color:  #3E3232;
+    text-align: center;
+    font-family: "Font Awesome 6 Free";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.auth{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 30px;
+}
+
+.authLink{
+    text-decoration: none;
+    color:  #000;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.authLink:hover{
+    text-decoration: underline;
+}
+
+.searchIco{
+    color: #000;
+}
+
+.searchBtn{
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+@media only screen and (max-width: 600px) {
+   
+    .navRight{
+        padding: 0px;
+    }
+
+    .searchBg{
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .search{
+        width: 100%;
+    }
+
+    .user{
+        padding-left: 0px;
+    }
+}

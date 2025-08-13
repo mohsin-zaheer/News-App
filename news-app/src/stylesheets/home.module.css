@@ -1,0 +1,623 @@
+.tags{
+    padding: 50px 0px;
+}
+
+
+.tagBg{
+    width: 170px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0px auto;
+    text-decoration: none !important;
+
+}
+
+.tag{
+    color:  #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.40);
+
+    /* H5 */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    height: 100%;
+    width: 100%;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 12;
+    text-decoration: none;
+}
+
+
+.tagImg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    filter: blur(1px);    
+}
+
+.sec1{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+}
+
+
+.card1{
+    background: url('../assets/carbg.png') no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 452px;
+    border-radius: 12px;
+}
+.card2{
+    background: url('../assets/girl.png') no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 452px;
+    border-radius: 12px;
+}
+.card3{
+    background: url('../assets/pc.png') no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 452px;
+    border-radius: 12px;
+}
+
+.cardInner{
+    border-radius: 12px;
+    background:  rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(5px);
+    width: 95%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.cardTitle{
+    overflow: hidden;
+    color:  #000;
+    font-feature-settings: 'liga' off, 'clig' off;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Roboto;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.cardContent{
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.75);
+    height: 40px;
+    align-self: stretch;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    letter-spacing: 0.25px;
+    text-transform: capitalize;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.sec2{
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+.sec2Title{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color:  #3E3232;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+}
+
+.t{
+    width: 4px;
+    height: 10px;
+}
+
+
+
+
+.postCard{
+    display: flex;
+    width: 98%;
+    padding: 10px;
+    flex-direction: column;
+    margin: 0px auto;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.07);
+    text-decoration: none !important;
+}
+
+.postImg{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+
+}
+
+.postTitle{
+    overflow: hidden;
+    color:  #3E3232;
+    font-feature-settings: 'liga' off, 'clig' off;
+    text-overflow: ellipsis;
+    margin: 16px 0px;
+
+    /* H5 */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Only 1 line */
+    -webkit-box-orient: vertical;
+}
+
+.pContent{
+    overflow: hidden;
+    color: rgba(62, 50, 50, 0.75);
+    text-overflow: ellipsis;
+
+
+    /* Paragraph */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.25px;
+    text-transform: capitalize;
+    text-align: justify;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Max 3 lines */
+    -webkit-box-orient: vertical;
+}
+
+
+.authorBg{
+    display: flex;
+    height: 72px;
+    padding: 13px 16px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 12px;
+    background: #F5F5F5;
+}
+
+.author{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.authorInfo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.aName{
+    color:  #3E3232;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px; /* 157.143% */
+    letter-spacing: 0.1px;
+    margin-bottom: 5px;
+}
+
+.pDate{
+    color:  rgba(62, 50, 50, 0.75);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+    letter-spacing: 0.25px;
+    margin-bottom: 0px;
+}
+
+.authorImg{
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+.saveIco{
+    font-size: 20px;
+    color:  rgba(62, 50, 50, 0.75);
+
+}
+
+
+
+
+.sec3{
+    position: relative;
+    padding: 65px 0px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:  rgba(62, 50, 50, 0.10);
+    backdrop-filter: blur(12px);
+    z-index: 10;
+    margin-bottom: 50px;
+}
+
+.sportBg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    object-fit: cover;
+    filter: blur(2px);  
+}
+
+
+.sec4{
+  padding: 50px 0px;
+}
+
+.sec4Top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.sec4Btn{
+    border-radius: 12px;
+    background:  #F5F5F5;
+    width: 120px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: rgba(62, 50, 50, 0.75);
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* Button */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnIcon{
+    color:  rgba(62, 50, 50, 0.50);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-left: 5px;
+}
+
+.newPosts{
+    padding-top: 40px;
+}
+
+
+.newPostCard{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    margin: 0px auto;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.07);
+    align-items: center;
+    margin-bottom: 30px;
+    text-decoration: none !important;
+}
+
+.newPostCardInner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px 10px;
+    height: 100%;
+    align-items: center;
+}
+
+.newPostImg{
+    width: 250px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+
+}
+
+
+.postImgBg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+
+.sec5{
+    background: var(--Gray, #F5F5F5);
+    padding: 50px 0px;
+}
+
+
+.newPostIframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+
+.videoPostCard{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 10px;
+}
+
+.postVideoBg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.videoPostCardInner{
+    z-index: 10;
+    border-radius: 12px;
+    background: var(--White-75, rgba(255, 255, 255, 0.75));
+    backdrop-filter: blur(5px);
+    height: 116px;
+    padding: 10px;
+}
+
+
+.custom-swiper-pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+  background: #4fa94d;
+  opacity: 0.5;
+  margin: 0 4px;
+  transition: opacity 0.3s;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+
+.sec6{
+    padding: 100px 0px;
+}
+
+.cardsRow{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+}
+.wcard{
+    width: 100%;
+    border-radius: 12px;
+}
+
+
+.wcard1{
+    background: url('../assets/wcard1.png') no-repeat center/cover;
+}
+
+
+.wcard2{
+    background: url('../assets/wcard2.png') no-repeat center/cover;
+}
+.wcard3{
+    background: url('../assets/wcard3.png') no-repeat center/cover;
+}
+.wcard4{
+    background: url('../assets/wcard4.png') no-repeat center/cover;
+}
+
+.wcardOverlay{
+    border-radius: 12px;
+background: linear-gradient(154deg, rgba(251, 68, 28, 0.91) 0%, rgba(251, 202, 28, 0.60) 99%), rgba(0, 0, 0, 0.45);
+width: 100%;
+height: 100%;
+    padding: 25px;
+
+}
+
+.wcardInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.wInfo{
+    color: var(--White, #FFF);
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* Input text */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+
+
+.wTemp{
+    color: var(--White, #FFF);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Roboto;
+    font-size: 49px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.wIcon{
+    font-size: 57px;
+}
+
+
+.wInfoRight{
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+
+}
+
+
+.cityName{
+    color: var(--White, #FFF);
+    text-align: right;
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* H4 */
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+
+.overlay2{
+    background: linear-gradient(154deg, rgba(28, 50, 251, 0.91) 0%, rgba(28, 251, 224, 0.60) 99%), rgba(0, 0, 0, 0.45);
+}
+
+.overlay3{
+    background: linear-gradient(154deg, rgba(7, 156, 39, 0.91) 0%, rgba(192, 255, 113, 0.60) 99%), rgba(0, 0, 0, 0.45);
+}
+
+.overlay4{
+    background: linear-gradient(154deg, rgba(113, 28, 251, 0.91) 0%, rgba(251, 28, 148, 0.60) 99%), rgba(0, 0, 0, 0.45);
+}
+
+.wcardBg{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.sec7{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 100px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .newPostCard{
+        flex-direction: column;
+    }
+
+    .tagBg{
+        margin-bottom: 20px;
+    }
+    .tags{
+        padding: 20px 0px;
+    }
+
+    .card1{
+        width: 90%;
+        margin: 0px auto;
+        margin-bottom: 20px;
+    }
+    .card2{
+        width: 90%;
+        margin: 0px auto;
+        margin-bottom: 20px;
+    }
+    .card3{
+        width: 90%;
+        margin: 0px auto;
+    }
+
+    .sec2Title{
+        margin-left: 20px;
+    }
+
+    .sec3{
+        height: auto;
+    }
+    .cardsRow{
+        flex-direction: column;
+    }
+}
