@@ -62,7 +62,7 @@ export const useAuthStore = create(
             method: 'POST',
             body: { email, username, password },
           });
-          const token = data?.token || null; // if backend returns token JSON
+          const token = data?.token || null; 
           set({ token, error: null });
           await get().getMe();
           set({ loading: false });
