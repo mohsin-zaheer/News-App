@@ -5,20 +5,23 @@ import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import { signupSchema, validate } from '../middleware/validate.js';
 import auth from '../middleware/auth.js';
-import { v2 as cloudinary } from 'cloudinary';
 import multer from 'multer';
+import sharp from 'sharp';
 
+import { S3Client, PutObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
 
-cloudinary.config({
-  cloud_name: 'dmifpzrrc',
-  api_key: '252835291663747',
-  api_secret: 'CycDSKjcfbdkwMOPJxVJFS2X4r8'
+const s3 = new S3Client({
+  region: process.env.AWS_REGION,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+  }
 });
 
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 10 * 1024 * 1024 },
-  fileFilter: (req, file, cb) => /^image\//.test(file.mimetype) ? cb(null, true) : cb(new Error('Only images allowed'))
+  fileFilter: (req, file, cb) => (/^image\//.test(file.mimetype) ? cb(null, true) : cb(new Error('Only images allowed')))
 });
 
 const router = express.Router();
@@ -43,16 +46,12 @@ router.post('/login', async (req, res) => {
 
   const token = jwt.sign({ sub: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
-  // cookie mode (recommended in production over HTTPS)
   res.cookie('token', token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000
   });
-
-  // or include token in JSON if you prefer bearer auth on the client
-  // return res.json({ token, message: 'Login successful' });
 
   res.json({ message: 'Login successful' });
 });
@@ -61,7 +60,7 @@ router.post('/logout', (_req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
   });
   res.json({ message: 'Logged out' });
 });
@@ -71,7 +70,6 @@ router.get('/me', auth, async (req, res) => {
   if (!me) return res.status(404).json({ message: 'User not found' });
   res.json(me);
 });
-
 
 router.put('/me', auth, upload.single('files'), async (req, res) => {
   try {
@@ -83,31 +81,41 @@ router.put('/me', auth, upload.single('files'), async (req, res) => {
     if (password) updates.passwordHash = await bcrypt.hash(password, 10);
 
     if (req.file) {
-      const dataUri = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
-      const uploadRes = await cloudinary.uploader.upload(dataUri, {
-        folder: 'avatars',
-        resource_type: 'image',
-        transformation: [{ width: 312, height: 312, crop: 'fill', gravity: 'face' }]
-      });
+      // Process avatar to 312x312 (cover) and encode as JPEG
+      const processed = sharp(req.file.buffer).resize(312, 312, { fit: 'cover', position: 'center' }).jpeg({ quality: 90 });
+      const buffer = await processed.toBuffer();
+      const key = `avatars/${req.userId}_${Date.now()}.jpg`;
 
-      const current = await User.findById(req.userId).select('avatar.publicId');
-      if (current?.avatar?.publicId) {
-        try { await cloudinary.uploader.destroy(current.avatar.publicId); } catch {}
+      // Delete previous avatar from S3 if we have a stored key
+      const current = await User.findById(req.userId).select('avatar.key');
+      if (current?.avatar?.key) {
+        try {
+          await s3.send(new DeleteObjectCommand({ Bucket: process.env.S3_BUCKET, Key: current.avatar.key }));
+        } catch (_) {
+          // swallow deletion errors to avoid blocking profile update
+        }
       }
 
+      // Upload new avatar to S3
+      await s3.send(new PutObjectCommand({
+        Bucket: process.env.S3_BUCKET,
+        Key: key,
+        Body: buffer,
+        ContentType: 'image/jpeg',
+        CacheControl: 'public, max-age=31536000, immutable'
+      }));
+
       updates.avatar = {
-        url: uploadRes.secure_url,
-        publicId: uploadRes.public_id,
-        width: uploadRes.width,
-        height: uploadRes.height,
-        bytes: uploadRes.bytes,
-        format: uploadRes.format
+        url: `https://${process.env.S3_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`,
+        key,
+        width: 312,
+        height: 312,
+        bytes: buffer.length,
+        format: 'jpg'
       };
     }
 
-    const user = await User.findByIdAndUpdate(req.userId, updates, { new: true, runValidators: true })
-      .select('-passwordHash');
-
+    const user = await User.findByIdAndUpdate(req.userId, updates, { new: true, runValidators: true }).select('-passwordHash');
     res.json({ user });
   } catch (err) {
     if (err.code === 11000) {
@@ -117,6 +125,5 @@ router.put('/me', auth, upload.single('files'), async (req, res) => {
     res.status(400).json({ message: err.message || 'Update failed' });
   }
 });
-
 
 export default router;
